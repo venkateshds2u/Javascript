@@ -24,5 +24,62 @@ promiseToCleanTheRoom.then(function(fromResolve) {
 
 OUTPUT: the room isnot Clean
 
+Promise takes a callback function and this callback function has two arguments, the first argument is resolve
+and the second argument is reject
+
+
+
+
+let cleanRoom = function () {
+	return new Promise(function(resolve, reject){
+	
+	resolve('Cleaned the room');
+	});
+};
+
+
+let removeGarbage = function (message) {
+	return new Promise(function(resolve, reject){
+	
+	resolve(message + 'remove Garbage');
+	});
+};
+
+
+let winIcecream = function (message) {
+	return new Promise(function(resolve, reject){
+	
+	resolve(message + 'Won Icecream');
+	});
+};
+
+
+cleanRoom().then(function(result) {
+	return removeGarbage(result);
+}).then(function(result) {
+	return winIcecream(result);
+}).then(function(result) {
+	console.log('Finished' + result);
+})
+
+OUTPUT: finished cleaned the room remove garbage won icecream
+
+
+
+
+Promise.all(cleanRoom(), removeGarbage(), winIcecream()).then(function() {
+	console.log('all finished);
+});
+
+
+Promise.race(cleanRoom(), removeGarbage(), winIcecream()).then(function() {
+	console.log('one of them is finished);
+});
+
+
+
+
+
+
 
 
