@@ -49,3 +49,17 @@ Split:
 
 The split() method is used to split a string into an array of substrings, and returns the new array.
 Tip: If an empty string ("") is used as the separator, the string is split between each character.
+
+
+The Math.floor() function returns the largest integer less than or equal to a given number.
+
+
+Map:
+
+let m = new Map();
+m.get();
+m.set();
+m.has();
+
+
+
