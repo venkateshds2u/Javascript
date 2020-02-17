@@ -60,6 +60,13 @@ let m = new Map();
 m.get();
 m.set();
 m.has();
+myMap.forEach(function(value, key) {
+  console.log(key + ' = ' + value)
+})
+
+
+
+
 
 
 
