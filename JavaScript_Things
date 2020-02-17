@@ -65,6 +65,11 @@ myMap.forEach(function(value, key) {
 })
 
 
+Splice:
+The splice() method adds/removes items to/from an array, and returns the removed item(s).
+Note: This method changes the original array.
+
+
 
 
 
