@@ -75,6 +75,8 @@ The Math.abs() function returns the absolute value of a number, that is
 Math.abs(x)=|x|={ x	ifx>0	0	ifx=0	-x	ifx<0
 
 
+The split() method turns a String into an array of strings, by separating the string at each instance of a specified separator string
+
 
 
 
