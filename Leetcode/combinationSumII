@@ -1,0 +1,34 @@
+https://leetcode.com/problems/combination-sum-ii/
+
+
+var combinationSum2 = function(candidates, target) {
+    
+    var result = [];
+    candidates = candidates.sort((a,b) => a-b);
+    const len = candidates.length;
+    
+    const recursiveSum = function(startIndex, estimatedTarget, addlist) {
+        if(estimatedTarget<0) {
+           return;
+        }
+        if(startIndex>len) {
+           return;
+        }
+        
+        if(estimatedTarget === 0) {
+            result.push([...addlist]);
+        }
+        
+        for(let i=startIndex;i<candidates.length;i++) {
+            var z= addlist.length;
+            if(i>startIndex && candidates[i]===candidates[i-1]) {
+               continue;
+            }
+            addlist.push(candidates[i]);
+            recursiveSum(i+1, estimatedTarget-candidates[i], [...addlist]);
+            addlist.pop();
+        }
+    }
+    recursiveSum(0, target, []);
+    return result;
+};
