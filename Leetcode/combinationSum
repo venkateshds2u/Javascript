@@ -1,0 +1,22 @@
+var combinationSum = function(candidates, target) {
+    candidates.sort((a,b)=>a-b);
+    var result = [];
+    var len = candidates.length;
+    const recursiveComb = function(begin, estTarget, addlist) {
+        if(estTarget < 0) {
+           return;
+        }
+        if(estTarget === 0) {
+            result.push([...addlist]);
+        }
+        for(let i=begin;i<len;i++) {
+            let l = addlist.length;
+            if(l>0 && candidates[i]<addlist[l-1]) {
+                continue;
+            }
+            recursiveComb(begin, estTarget-candidates[i], [...addlist, candidates[i]]);
+        }
+    }
+    recursiveComb(0, target, []);
+    return result;
+};
