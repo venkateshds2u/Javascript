@@ -1,0 +1,32 @@
+
+
+
+https://leetcode.com/problems/permutations/
+
+
+var permute = function(nums) {
+    
+    var result = [];
+    const len = nums.length;
+    
+    const recursiveFunction = function(startIndex, addlist) {
+        
+        if(addlist.length>len) {
+           return;
+        }
+        
+        if(addlist.length === len) {
+            console.log([...addlist]);
+            result.push([...addlist]);
+        }
+        
+        for(let i=startIndex;i<nums.length; i++) {
+            if(addlist.indexOf(nums[i])==-1 ) {
+                recursiveFunction(0, [...addlist, nums[i]]);
+            }
+        }   
+    } 
+    
+    recursiveFunction(0, []);
+    return result;
+};
