@@ -1,0 +1,34 @@
+https://leetcode.com/problems/permutations-ii/
+
+
+
+
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+var permuteUnique = function(nums) {
+    
+    var result = new Set();
+    const len = nums.length;
+    const recursiveFunction = function(addlist, numslist) {
+        
+        if(addlist.length === len) {
+           result.add(addlist.toString());
+        }
+        
+        if(addlist.length > len) {
+           return;
+        }
+        
+        for(let i=0;i<numslist.length;i++) {
+            if(true) {
+                recursiveFunction([...addlist, numslist[i]], [...numslist.slice(0, i), ...numslist.slice(i+1)]);
+            }
+        }
+        
+    }
+    recursiveFunction([], [...nums]);
+    result = Array.from(result);
+    return result.map(item => item.split(',').map((n)=> Number(n)));
+};
